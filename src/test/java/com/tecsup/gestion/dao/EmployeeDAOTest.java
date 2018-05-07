@@ -116,11 +116,11 @@ public class EmployeeDAOTest {
 
 		logger.info("--");
 		
-		String LOGIN = "aromero" + (int) (Math.random() * 100);
+		String LOGIN = "hipcam" + (int) (Math.random() * 100);
 		//logger.info(LOGIN);
 		String PWD = "123";
-		String FIRSTNAME = "Alberto";
-		String LASTNAME = "Romero";
+		String FIRSTNAME = "Hip";
+		String LASTNAME = "Cam";
 		int SALARY = 3000;
 		int DEPT_ID = 14;
 
@@ -135,45 +135,6 @@ public class EmployeeDAOTest {
 			Assert.assertEquals(FIRSTNAME, emp.getFirstname());
 			Assert.assertEquals(LASTNAME, emp.getLastname());
 			Assert.assertEquals(SALARY, emp.getSalary());
-
-		} catch (DAOException e) {
-			fail(e.getMessage());
-		} catch (EmptyResultException e) {
-			fail(e.getMessage());
-		}
-
-	}
-
-	
-	
-	@Test
-	public void testUpdateEmployee() {
-
-		String LOGIN = "jgomez" + (int)(Math.random() * 100);
-		String PWD = "123";
-		String FIRSTNAME = "Jaime";
-		String LASTNAME = "Gomez";
-		int SALARY = 3000;
-		int DEPT_ID = 14;
-		
-		String UP_PWD = "456";
-		String UP_FIRSTNAME = "Jaime5";
-		String UP_LASTNAME = "Gomez6";
-		int UP_SALARY = 3500;
-		int UP_DEPT_ID = 14;
-		
-		try {
-			//
-			employeeDAO.create(LOGIN, PWD, FIRSTNAME, LASTNAME, SALARY, DEPT_ID);
-			//
-			employeeDAO.update(LOGIN, UP_PWD, UP_FIRSTNAME, UP_LASTNAME, UP_SALARY, UP_DEPT_ID);
-			//
-			Employee emp = employeeDAO.findEmployeeByLogin(LOGIN);
-
-			Assert.assertEquals(UP_PWD, emp.getPassword());
-			Assert.assertEquals(UP_FIRSTNAME, emp.getFirstname());
-			Assert.assertEquals(UP_LASTNAME, emp.getLastname());
-			Assert.assertEquals(UP_SALARY, emp.getSalary());
 
 		} catch (DAOException e) {
 			fail(e.getMessage());
